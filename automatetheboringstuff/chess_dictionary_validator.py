@@ -31,9 +31,9 @@ def check_number_of_pieces(board):
     black_pieces = []
 
     for piece in board.values():
-        if piece[0] == 'w':
+        if piece.startsWith('w'):
             white_pieces.append(piece)
-        elif piece[0] == 'b':
+        elif piece.startsWith('b') == 'b':
             black_pieces.append(piece)
 
     if len(white_pieces) > 16 or len(black_pieces) > 16:
