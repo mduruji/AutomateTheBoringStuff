@@ -22,8 +22,9 @@ def selective_copy(filepath):
 
         for filename in filenames:
             if fnmatch.fnmatch(filename, pattern):
-                shutil.copy(filepath/filename, destination)
-                print(f"{filename} has been successfully moved to {str(destination)}")
+                if not (destination/filename).is_file():
+                    shutil.copy(filepath/filename, destination)
+                    print(f"{filename} has been successfully moved to {destination}")
 
 
 selective_copy(p)
